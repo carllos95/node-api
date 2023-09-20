@@ -31,4 +31,20 @@ export class DataBasePostgres {
   async delete(id) {
     await sql`delete from videos where id = ${id}`
   }
+
+  async getProjects() {
+    const projects = await sql`select * from projetos`
+
+    return projects
+  }
+
+  async createProject(project) {
+    const projectId = randomUUID()
+    const { title, description, image } = project
+    await sql`insert into projetos (id, title, description, image) VALUES (${projectId}, ${title}, ${description}, ${image})`
+  }
+
+  async deleteProject(id) {
+    await sql`delete from projetos where id = ${id}`
+  }
 }

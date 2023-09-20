@@ -26,3 +26,18 @@ Content-Type: application/json
 ###
 
 DELETE https://node-do-zero-0gvy.onrender.com/videos/21c445b7-3327-4781-b618-f0d90efd6340
+
+
+###
+
+POST https://node-do-zero-0gvy.onrender.com/projetos
+Content-Type: application/json
+
+{
+  "title": "Projeto 1",
+  "description": "Esse é o projeto 1",
+  "image": "/images/projeto1.jpg"
+}
+
+###
+DELETE https://node-do-zero-0gvy.onrender.com/projetos/0fa6e746-9a06-485a-8468-87b6d8820877

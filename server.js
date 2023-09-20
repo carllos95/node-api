@@ -51,6 +51,33 @@ server.delete('/videos/:id', async (request, reply) => {
   return reply.status(204).send()
 })
 
+server.get('/projetos', async () => {
+  const projects = await database.getProjects()
+
+  return projects
+})
+
+server.post('/projetos', async (request, reply) => {
+
+  const { title, description, image } = request.body
+
+  await database.createProject({
+    title,
+    description,
+    image
+  })
+
+  return reply.status(201).send()
+})
+
+server.delete('/projetos/:id', async (request, reply) => {
+  const projetoId = request.params.id
+
+  await database.deleteProject(projetoId)
+
+  return reply.status(204).send()
+})
+
 server.listen({
   host: '0.0.0.0',
   port: process.env.PORT ?? 3333
